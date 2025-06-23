@@ -7,7 +7,7 @@
     <PackageId>Dnarok.BepInExTemplate</PackageId>
     <PackageVersion>1.0.6</PackageVersion>
     <Title>Risk of Rain 2 BepInEx Template</Title>
-    <Authors>Robyn, Hamunii</Authors>
+    <Authors>Robyn, Hamunii, Dnarok</Authors>
     <Description>A BepInEx template for making mods for Risk of Rain 2</Description>
     <PackageTags>dotnet new; template; BepInEx; Risk of Rain 2</PackageTags>
     <PackageProjectUrl>https://github.com/Dnarok/BepInExTemplate</PackageProjectUrl>

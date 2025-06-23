@@ -19,6 +19,12 @@
     <Version>0.1.0</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="R2API.Items" Version="1.0.*" />
+    <PackageReference Include="R2API.Language" Version="1.0.*" />
+    <PackageReference Include="RoR2BepInExPack" Version="1.*.*" />
+  </ItemGroup>
+
 <!--#if (library) -->
   <!-- NuGet metadata -->
   <PropertyGroup>
