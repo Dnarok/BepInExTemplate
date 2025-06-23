@@ -36,9 +36,9 @@ target = "/"
 [publish]
 # See communities at:
 # https://thunderstore.io/api/experimental/community/
-communities = [ "_ThunderstoreGameIdentifier_", ]
+communities = [ "riskofrain2", ]
 
 [publish.categories]
 # See categories at:
-# https://thunderstore.io/api/experimental/community/_ThunderstoreGameIdentifier_/category/
-_ThunderstoreGameIdentifier_ = [ "mods", ]
+# https://thunderstore.io/api/experimental/community/riskofrain2/category/
+riskofrain2 = [ "mods", ]
