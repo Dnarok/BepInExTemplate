@@ -8,12 +8,12 @@
   </PropertyGroup>
 
   <Target Name="DeployFiles" AfterTargets="Build">
-    <Message Text="Deploy → $(_GameNameNoSpaces_PluginsDir)$(AssemblyName).dll" Importance="High" />
+    <Message Text="Deploy → $(RiskofRain2PluginsDir)$(AssemblyName).dll" Importance="High" />
     <Error
-      Text="Plugins directory '$([MSBuild]::NormalizeDirectory($(_GameNameNoSpaces_PluginsDir)))' doesn't exist! Configure _GameNameNoSpaces_PluginsDir to point to a valid path in the Config.Build.user.props file."
-      Condition="!Exists('$(_GameNameNoSpaces_PluginsDir)')"
+      Text="Plugins directory '$([MSBuild]::NormalizeDirectory($(RiskofRain2PluginsDir)))' doesn't exist! Configure RiskofRain2PluginsDir to point to a valid path in the Config.Build.user.props file."
+      Condition="!Exists('$(RiskofRain2PluginsDir)')"
     />
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(_GameNameNoSpaces_PluginsDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(RiskofRain2PluginsDir)" />
   </Target>
 
 </Project>

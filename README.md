@@ -52,17 +52,17 @@ To uninstall:
 dotnet new uninstall .
 ```
 
-Once installed, the template will be available as `_GameName_ BepInEx Plugin` with an alias `_GameNameShortNoSpacesLowercase_mod`.
+Once installed, the template will be available as `Risk of Rain 2 BepInEx Plugin` with an alias `ror2mod`.
 
 ## Creating a Project
 
-Open a terminal in your _GameName_ modding directory, and run:
+Open a terminal in your Risk of Rain 2 modding directory, and run:
 
 > [!NOTE]  
 > You should [set up a Thunderstore team first](<https://thunderstore.io/settings/teams/create/>) so you can use its name in the optional `--ts-team` argument so the template can give you a mostly correctly configured packaging setup.
 
 ```sh
-dotnet new _GameNameShortNoSpacesLowercase_mod --output ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
+dotnet new ror2mod --output ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
 ```
 
 > [!TIP]  
@@ -70,7 +70,7 @@ dotnet new _GameNameShortNoSpacesLowercase_mod --output ModName --guid com.githu
 >
 > You can also use `--no-tutorial` to get rid of tutorial comments in the template. Note that this doesn't get rid of _all_ comments.
 >
-> You can run `dotnet new _GameNameShortNoSpacesLowercase_mod --help` to see all available options.
+> You can run `dotnet new ror2mod --help` to see all available options.
 
 This will create a new directory with the mod name which contains the project.
 
@@ -81,8 +81,8 @@ You now have a (mostly) working setup. See [Setting Up The Config File](#setting
 This example demonstrates what files should appear and where:
 
 ```sh
-~/Workspace/_GameNameNoSpaces_$ dotnet new _GameNameShortNoSpacesLowercase_mod --output MyCoolMod --guid com.github._TemplateAuthorNoSpaces_.MyCoolMod --ts-team _TemplateAuthorNoSpaces_
-The template "_GameNameNoSpaces_ BepInEx Plugin" was created successfully.
+~/Workspace/RiskofRain2$ dotnet new ror2mod --output MyCoolMod --guid com.github.Dnarok.MyCoolMod --ts-team Dnarok
+The template "RiskofRain2 BepInEx Plugin" was created successfully.
 
 ~/Workspace/RiskofRain2$ cd MyCoolMod/
 ~/Workspace/RiskofRain2/MyCoolMod$ tree
