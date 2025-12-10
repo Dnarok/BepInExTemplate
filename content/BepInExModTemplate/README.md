@@ -18,10 +18,10 @@ Next steps:
 
 This template comes with Thunderstore packaging built-in, using [TCLI](<https://github.com/thunderstore-io/thunderstore-cli>).
 
-You can build Thunderstore packages by running:
+You can build Thunderstore packages by building with release configuration:
 
 ```sh
-dotnet build -c Release -target:PackTS -v d
+dotnet build -c Release -v d
 ```
 
 > [!NOTE]  

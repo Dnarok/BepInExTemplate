@@ -2,7 +2,7 @@
 
 - [BepInEx Template for Risk of Rain 2](#bepinex-template-for-gamename)
   - [Installing](#installing)
-    - [From Nuget](#from-nuget)
+    - [From NuGet (Recommended)](#from-nuget-recommended)
     - [Manually](#manually)
   - [Creating a Project](#creating-a-project)
     - [Project Structure](#project-structure)
@@ -17,7 +17,7 @@
 > [!NOTE]  
 > You must use .NET SDK 8 or newer to use this template. Older SDK versions are out of support.
 
-### From Nuget
+### From NuGet (Recommended)
 
 Run the following command:
 
@@ -25,28 +25,52 @@ Run the following command:
 dotnet new install Dnarok.BepInExTemplate
 ```
 
+> [!TIP]  
+> You can run `dotnet new update` to update all your dotnet templates. You should do this get the latest versions of everything with the latest fixes and improvements!
+
 ### Manually
 
-If you don't want to install via NuGet or are contributing to this template, you can follow these steps:
+If you're contributing to the template or prefer a manual installation:
 
-- Download this repo's source or clone it to your local computer
-- Navigate inside the repository root directory
-- Open a Terminal/Powershell/Bash window inside this folder and use the following command to install it: `dotnet new install .`
-  - Note: If you are updating the template from an older version use `dotnet new install . --force` instead
-  - Note: To uninstall it, run `dotnet new uninstall .`
+1. Clone or download this repository
+2. Open a terminal at the root of the repository
+3. Run:
 
-Great! The template is now installed locally as Risk of Rain 2 BepInEx Plugin.
+```bash
+dotnet new install .
+```
+
+To update:
+
+```bash
+dotnet new install . --force
+```
+
+To uninstall:
+
+```bash
+dotnet new uninstall .
+```
+
+Once installed, the template will be available as `_GameName_ BepInEx Plugin` with an alias `_GameNameShortNoSpacesLowercase_mod`.
 
 ## Creating a Project
 
-> [!TIP]  
-> If you've done this before, you can use the `--no-tutorial` option to get rid of tutorial comments. Note that this doesn't get rid of *all* comments.
+Open a terminal in your _GameName_ modding directory, and run:
 
-Open a terminal in your Risk of Rain 2 modding directory, and run:
+> [!NOTE]  
+> You should [set up a Thunderstore team first](<https://thunderstore.io/settings/teams/create/>) so you can use its name in the optional `--ts-team` argument so the template can give you a mostly correctly configured packaging setup.
 
 ```sh
- dotnet new ror2mod --name ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
+dotnet new _GameNameShortNoSpacesLowercase_mod --output ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
 ```
+
+> [!TIP]  
+> If you are developing a public API, add the `--library` option for included NuGet metadata!
+>
+> You can also use `--no-tutorial` to get rid of tutorial comments in the template. Note that this doesn't get rid of _all_ comments.
+>
+> You can run `dotnet new _GameNameShortNoSpacesLowercase_mod --help` to see all available options.
 
 This will create a new directory with the mod name which contains the project.
 
@@ -57,8 +81,8 @@ You now have a (mostly) working setup. See [Setting Up The Config File](#setting
 This example demonstrates what files should appear and where:
 
 ```sh
-~/Workspace/RiskofRain2$ dotnet new ror2mod --name MyCoolMod --guid com.github.Dnarok.MyCoolMod --ts-team Dnarok
-The template "RiskofRain2 BepInEx Plugin" was created successfully.
+~/Workspace/_GameNameNoSpaces_$ dotnet new _GameNameShortNoSpacesLowercase_mod --output MyCoolMod --guid com.github._TemplateAuthorNoSpaces_.MyCoolMod --ts-team _TemplateAuthorNoSpaces_
+The template "_GameNameNoSpaces_ BepInEx Plugin" was created successfully.
 
 ~/Workspace/RiskofRain2$ cd MyCoolMod/
 ~/Workspace/RiskofRain2/MyCoolMod$ tree

@@ -44,20 +44,21 @@
 <!--#endif -->
 <!--#if (!no-tutorial) -->
   <!--
-  How to include thunderstore mods as dependencies via nuget
+    To reference mod assemblies from Thunderstore packages via NuGet,
+    this project includes the following NuGet feed:
+    https://nuget.windows10ce.com/nuget/v3/index.json
 
-  We have already added the windows10ce nuget feed to this project
-  in NuGet.Config so all you need to do is list a dependency like
-  this:
+    With this, you can simply depend on a Thunderstore package like so:
 
-  <ItemGroup>
-    <PackageReference Include="ModTeam-ModName" Version="1.0.0" Private="False"/>
-  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="ModTeam-ModName" Version="*" />
+    </ItemGroup>
 
-  Private="false" will stop it from being copied to the output folder
-  during build. This will cause the mod to be downloaded and its
-  methods will be available at compile time for your code. You'll still
-  need to add it as a dependency in your manifest.json, of course
+    This will cause the mod to be downloaded and its
+    methods will be available at compile time for your code.
+
+    Note that this does NOT mark the package as a dependency
+    for your Thunderstore package.
   -->
 
 <!--#endif -->

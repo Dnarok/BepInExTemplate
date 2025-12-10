@@ -39,6 +39,10 @@
 <!--#endif -->
     <Nullable>enable</Nullable>
 <!--#if (!no-tutorial) -->
+    <!-- https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview -->
+<!--#endif -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+<!--#if (!no-tutorial) -->
     <!-- Build, and other generated files go nicely into artifacts/ directory. -->
 <!--#endif -->
     <UseArtifactsOutput>true</UseArtifactsOutput>
@@ -62,7 +66,10 @@
 <!--#endif -->
     <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
 <!--#if (!no-tutorial) -->
-    <!-- Default values for game files. -->
+    <!--
+      Default values for paths. Do not modify,
+      instead configure your Config.Build.user.props file.
+    -->
 <!--#endif -->
     <PathBeforeSteam Condition="'$([MSBuild]::IsOSUnixLike())' == 'true'">$(HOME)/.local/share/</PathBeforeSteam>
     <PathBeforeSteam Condition="'$([MSBuild]::IsOSUnixLike())' != 'true'">$(MSBuildProgramFiles32)/</PathBeforeSteam>
