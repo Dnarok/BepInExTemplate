@@ -20,9 +20,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="R2API.Items" Version="1.0.*" />
-    <PackageReference Include="R2API.Language" Version="1.0.*" />
-    <PackageReference Include="RoR2BepInExPack" Version="1.*.*" />
+    <PackageReference Include="R2API.Items" Version="*-*" />
+    <PackageReference Include="R2API.Language" Version="*-*" />
+    <PackageReference Include="RoR2BepInExPack" Version="*-*" />
+		<PackageReference Include="RiskOfRain2.GameLibs" Version="*-*" NoWarn="NU5104" />
   </ItemGroup>
 
 <!--#if (library) -->

@@ -1,24 +1,24 @@
 ﻿using BepInEx;
 using RoR2;
 using R2API;
-using RoR2BepInExPack.GameAssetPaths;
+using RoR2BepInExPack.GameAssetPathsBetter;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using BepInEx.Configuration;
 
 namespace ExamplePlugin;
 
+//#if (!no-tutorial)
 // Here are some basic resources on code style and naming conventions to help
 // you in your first CSharp plugin!
 // https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 // https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names
 // https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces
-
-// To demonstrate some basics, we will be creating an item. Let's say
-
+//#endif
 [BepInAutoPlugin]
 public partial class Plugin : BaseUnityPlugin
 {
+//#if (!no-tutorial)
     // The definition of our item will need to persist, so we will make it a
     // static member of our plugin.
     public static ItemDef item;
@@ -34,13 +34,19 @@ public partial class Plugin : BaseUnityPlugin
     public ConfigEntry<float> InvisDurationBase;
     public ConfigEntry<float> InvisDurationPerStack;
 
+//#endif
     private void Awake()
     {
+//#if (!no-tutorial)
         // BepInEx gives us a logger which we can use to log information.
+//#endif
         Log.Init(Logger);
-
+        
+//#if (!no-tutorial)
         // Log our awake here so we can see it in LogOutput.log file
+//#endif
         Log.Info($"Plugin {Name} is loaded!");
+//#if (!no-tutorial)
 
         // Let's define our item. This, as the name implies, creates an instance
         // of the ItemDef class.
@@ -132,7 +138,9 @@ public partial class Plugin : BaseUnityPlugin
         // https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/C%23-Programming/Hooking/
         // We can achieve this like so:
         GlobalEventManager.onCharacterDeathGlobal += OnCharacterDeathGlobal;
+//#endif
     }
+//#if (!no-tutorial)
 
     // We make a new function that will be called every time the vanilla function
     // is called. This allows us to respond to things happening in the game with
@@ -156,7 +164,7 @@ public partial class Plugin : BaseUnityPlugin
 
         // We can check to see if this attacker has any of our item in their
         // inventory like so:
-        int count = report.attackerBody.inventory.GetItemCount(item.itemIndex);
+        int count = report.attackerBody.inventory.GetItemCountEffective(item.itemIndex);
         if (count > 0)
         {
             // This general pattern will work for most items. Now, let's say our
@@ -192,13 +200,15 @@ public partial class Plugin : BaseUnityPlugin
             // Then, using that position, we spawn our item in front of the
             // player, like so:
             PickupDropletController.CreatePickupDroplet(
-                PickupCatalog.FindPickupIndex(item.itemIndex), 
+                new UniquePickup(PickupCatalog.FindPickupIndex(item.itemIndex)), 
                 transform.position, 
-                transform.forward * 20f
+                transform.forward * 20f,
+                isDuplicated: false
             );
 
             // Let's log that it occurred, for good measure.
             Log.Debug($"Player pressed F2 - spawning item at {transform.position}.");
         }
     }
+//#endif
 }
